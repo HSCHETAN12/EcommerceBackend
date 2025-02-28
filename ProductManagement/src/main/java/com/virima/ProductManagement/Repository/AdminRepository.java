@@ -1,6 +1,6 @@
 package com.virima.ProductManagement.Repository;
 
-import com.virima.ProductManagement.dto.Admin;
+import com.virima.ProductManagement.Entity.Admin;
 import jakarta.validation.constraints.Size;
 import org.springframework.data.jpa.repository.JpaRepository;
 

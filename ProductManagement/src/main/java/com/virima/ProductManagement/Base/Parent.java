@@ -1,18 +1,21 @@
 package com.virima.ProductManagement.Base;
 
+import jakarta.persistence.MappedSuperclass;
+import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.util.Date;
-
+@MappedSuperclass
+@Data
 public class Parent {
 
-    boolean isDeleted;
-    boolean idArchived;
+   public boolean isDeleted;
+    public boolean isArchived;
     @CreationTimestamp
-    Date createdAt;
+    public  Date createdAt;
     @UpdateTimestamp
-    Date updatedAt;
-    String createdBy;
-    String updatedBy;
+    public Date updatedAt;
+    public String createdBy;
+    public String updatedBy;
 }

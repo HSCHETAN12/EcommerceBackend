@@ -1,12 +1,18 @@
-package com.virima.ProductManagement.dto;
+package com.virima.ProductManagement.Entity;
 
 import com.virima.ProductManagement.Base.Parent;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.List;
 
 @Data
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NoArgsConstructor
 public class User extends Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,5 +36,13 @@ public class User extends Parent {
     private String gender;
     private int otp;
     private boolean verified;
+
+    @OneToOne(mappedBy = "user")
+    @ToString.Exclude
+    private Wallet wallet; // One-to-One relationship with wallet
+
+    @OneToMany(mappedBy = "user")
+    @ToString.Exclude
+    private List<Address> addresses;
 
 }

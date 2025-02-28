@@ -1,12 +1,16 @@
-package com.virima.ProductManagement.dto;
+package com.virima.ProductManagement.Entity;
 
 
+import com.virima.ProductManagement.Base.Parent;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
-public class Product {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NoArgsConstructor
+public class Product extends Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -16,8 +20,6 @@ public class Product {
     private int stock;
     private String imageUrl;
     private String category;
-    @ManyToOne
-    private Category categoryId;
     private String status;
 
 }

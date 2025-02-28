@@ -1,16 +1,16 @@
-package com.virima.ProductManagement.dto;
+package com.virima.ProductManagement.Entity;
 
 import com.virima.ProductManagement.Base.Parent;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@NoArgsConstructor
 public class Admin extends Parent {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
